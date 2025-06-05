@@ -73,7 +73,7 @@ function ToDoPage() {
               </div>
 
             </div>
-            <p className="px-5">X</p>
+            <p onClick={() => handleDelete(item.id)} className="px-5">X</p>
           </div>
         </div>
       </form>
