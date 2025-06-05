@@ -10,7 +10,7 @@ const initialTask = {
   completed: false,
 }
 
-function ToDoPage() {
+function MyToDoPage() {
   const [input, setInput] = useState(initialTask)
   const [toDo, setToDo] = useState(initialTask)
   const [inputError, setInputError] = useState(initialTask)
@@ -19,6 +19,10 @@ function ToDoPage() {
     const {id, value} = e.target
     setInput((prev) => ({...prev, [id]: value}))
   }
+
+  const handleDelete = async (id) => {
+    await axios.delete(`${BASE_URL}/api/V1/todos/${id}/1`);
+  };
 
   const userId = useAuthStore((state) => state.userId);
 
@@ -68,7 +72,7 @@ function ToDoPage() {
               
               <div>
                 {todos.map((item) => (
-                  <ToDoItem key={item.id}>{item.taskName}</ToDoItem>
+                  <ToDoItem key={item.id} item={item} />
                 ))}
               </div>
 
@@ -81,4 +85,4 @@ function ToDoPage() {
   );
 }
 
-export default ToDoPage;
+export default MyToDoPage;

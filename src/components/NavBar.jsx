@@ -5,7 +5,7 @@ function NavBar() {
     { id: 1, menu: "Start Here", path: "/" },
     { id: 2, menu: "Register", path: "/register" },
     { id: 3, menu: "Login", path: "/login" },
-    { id: 4, menu: "To Do Page", path: "/ToDoPage" },
+    { id: 4, menu: "To Do Page", path: "/todo" },
   ];
   return (
     <nav className="h-13 bg-gray-700 text-white flex item-center px-10 gap-6">

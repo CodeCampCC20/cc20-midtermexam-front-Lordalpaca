@@ -29,6 +29,12 @@ function LoginPage() {
     setInputError((prev) => ({ ...prev, [id]: "" }));
   };
 
+  const handleKeyUp = (event) => {
+    if (event.keyCode === 13 || event.which === 13) {
+      handleSubmit();
+    }
+  };
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -43,7 +49,7 @@ function LoginPage() {
 
       //to login page
       setInput(initialInput);
-      navigate("/toDoPage");
+      navigate("/todo");
 
       toast.success("Login sucessful!");
 
@@ -91,7 +97,7 @@ function LoginPage() {
           placeholder="Enter your password"
         />
 
-        <BtnForm>
+        <BtnForm onKeyUp={handleKeyUp}>
           {isLoading ? (
             <>
               <Loader className="w-5 h-5 animate-spin" strokeWidth={1.5} />
